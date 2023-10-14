@@ -7,6 +7,11 @@
 /*
 Diyar Parwana
 Real Time Monitoring (Realtidsövervakning)
+How to run it?
+1- Usin linux, get the network interface with the command ifconfig
+2- Compile it using the g++
+g++ -o main nids.cpp -lpcap
+3- sudo ./main network-inerface
 
 
 Den här koden är ett enkelt program skrivet i C som fungerar som en nätverksövervakare, realtidsövervakning. 
