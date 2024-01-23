@@ -1,4 +1,76 @@
-Nmap
-nmap -sn 192.168.1.0/24
-nmap -L ip.txt
+Nmap commands with explanations
+nmap 192.168.0.1
+Displaying open ports and services.
+nmap -sn 192.168.0.1:
+Ping scan to discover live hosts without initiating port scanning.
+nmap -Pn 192.168.0.1:
+Treat all hosts as online, skipping the host discovery phase.
+ nmap -sV 192.168.0.1:
+Know service versions on open ports.
+nmap - version-intensity 5 192.168.0.1:
+Increase version detection intensity (0–9).
+Operating System Detection:
+nmap -O 192.168.0.1:
+Attempt to identify the operating system of the specified IP address.
+Aggressive Scanning:
+nmap -A 192.168.0.1:
+Enable OS detection, version detection, script scanning, and traceroute.
+Script Scanning:
+nmap - script <script-name> 192.168.0.1:
+Run a specific Nmap script.
 
+nmap - script vuln 192.168.0.1:
+Run scripts that check for common vulnerabilities.
+Output Options:
+
+nmap -oN output.txt 192.168.0.1:
+Save results in normal format to a file.
+
+nmap -oX output.xml 192.168.0.1:
+Save results in XML format.
+nmap -oG output.txt 192.168.0.1:
+Save results in a greppable format.
+Timing and Performance:
+nmap -T<0–5> 192.168.0.1:
+Set timing template (0: Paranoid, 5: Insane).
+nmap - min-rate=100 192.168.0.1:
+Set the minimum, limit scan rate.
+Firewall Evasion Techniques:
+nmap -f 192.168.0.1:
+Use fragmented IP packets to bypass packet filters.
+
+nmap - mtu 24 192.168.0.1:
+Set the maximum transmission unit for scans.
+Idle Scan:
+nmap -sI zombie_host 192.168.0.1:
+Perform an idle scan using a zombie host.
+Scan a Range of Hosts:
+nmap 192.168.1.1–50:
+Scan a range of IP addresses.
+Exclude Hosts from Scan:
+nmap - exclude 192.168.1.5 192.168.0.1:
+Exclude a specific host from the scan.
+Customizing Port States:
+nmap - open 192.168.0.1:
+Show only open ports.
+
+nmap - unprivileged 192.168.0.1:
+Show only unprivileged ports.
+Verbose Output:
+nmap -v 192.168.0.1:
+Increase verbosity level (up to -vvv).
+Trace Route:
+nmap - traceroute 192.168.0.1:
+Perform a traceroute to the specified IP address.
+Scan IPv6 Addresses:
+nmap -6 192.168.0.1:
+Perform a scan on IPv6 addresses.
+Scan using a Proxy:
+nmap - proxy socks4://proxy_host:1080 192.168.0.1:
+Use a proxy for the scan.
+List NSE Scripts:
+nmap - script-help <script-name>:
+Get help for a specific NSE script.
+Update Nmap Script Database:
+nmap -iL targets.txt:
+Read target IP addresses from a file.
